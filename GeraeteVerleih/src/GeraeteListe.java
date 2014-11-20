@@ -13,7 +13,12 @@ public class GeraeteListe {
 		geraet.setId(id++);
 	}
 	public void entfernen(Geraet geraet) {
-		geraeteListe.remove(geraet);
+		if (geraeteListe.contains(geraet)){
+			geraeteListe.remove(geraet);
+		}
+		else{
+			throw new NoSuchGeraetException(geraet + " nicht enthalten");
+		}
 	}
 	public Geraet finden(int id){
 		for(Geraet geraet: geraeteListe){
